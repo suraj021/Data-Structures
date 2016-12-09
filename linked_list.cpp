@@ -207,6 +207,62 @@ void remove_duplicates( node* head ){
 
 }
 
+int length( node* a ){
+
+    int l= 0;
+
+    while( a!= NULL ){
+        a= a->next;
+        l++;
+    }
+
+    return l;
+}
+
+node* merge_nodes( node* a, node* b ){
+
+    node* result;
+
+    if( a== NULL )
+        return b;
+    if( b== NULL )
+        return a;
+
+    if( a->data > b->data ){
+        result= b;
+        result->next= merge_nodes( a, b->next );
+    }else{
+        result= a;
+        result->next= merge_nodes( a->next, b );
+    }
+
+    return result;
+}
+
+node* merge_sort( node* head ){
+
+    node* old_head= head;
+    node* new_head;
+
+    int mid= length( old_head )/2;
+
+    if( old_head->next== NULL )
+        return old_head;
+
+    for( int i= 0; i< mid-1; ++i )
+        old_head= old_head->next;
+
+    new_head= old_head->next;
+    old_head->next= NULL;
+    old_head= head;
+
+    node* a= merge_sort( new_head );
+    node* b= merge_sort( old_head );
+
+    return merge_nodes( a, b );
+
+}
+
 void print( node* head ){
 
     if( head== NULL )
