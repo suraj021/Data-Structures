@@ -205,8 +205,5 @@ int main(){
 	head= push_end( head, 4 );
 	head= push_end( head, 5 );
 
-	//head= remove( head, 1 );
-
 	print( head );
-
 }
