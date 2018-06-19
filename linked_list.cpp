@@ -52,6 +52,7 @@ node* push_end( node* head, int v ){
 	return head;
 }
 
+// print the list
 void print( node* head ){
 
 	while( head!= NULL ){
@@ -93,6 +94,7 @@ node* pop_start( node* head ){
 	return head;
 }
 
+// removes the last element of list
 node* pop_end( node* head ){
 
 	if( head== NULL )
@@ -116,6 +118,7 @@ node* pop_end( node* head ){
 	return head;
 }
 
+// removes all the nodes with value 'k'
 node* remove( node* head, int k ){
 	if( head== NULL )
 		return head;
@@ -137,6 +140,7 @@ node* remove( node* head, int k ){
 	return dummy->next;
 }
 
+//  returns middle node of the list
 node* middle( node* head ){
 	node* fast= head;
 	node* slow= head;
@@ -149,6 +153,8 @@ node* middle( node* head ){
 	return slow;
 }
 
+
+// returns nth node from end
 node* nth_from_end( node* head, int n ){
 	node* fwd= head;
 	node* bwd= head;
@@ -168,6 +174,7 @@ node* nth_from_end( node* head, int n ){
 	return bwd;
 }
 
+// returns node where loop starts
 node* detect_loop( node* head ){
 	node* fast, *slow;
 
