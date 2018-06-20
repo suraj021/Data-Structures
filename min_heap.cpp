@@ -56,17 +56,15 @@ void build_heap( int a[], int n ){
 
 
 // insert item into heap
-void insert( int a[], int &n, int val ){
+void insert_key( int a[], int &n, int val ){
 	a[n]= val;
-	int id= n;
 	n++;
-	heapify_up( a, n, id );
+	heapify_up( a, n, n-1 );
 }
 
 // decrease key in heap at index 'id' to 'new_key'
 void decrease_key( int a[], int n, int id, int new_key ){
 	a[id]= new_key;
-
 	heapify_up( a, n, id );
 }
 
@@ -117,7 +115,7 @@ int main(){
 
 	build_heap( a, n );
 
-	insert( a, n, 6 );
+	insert_key( a, n, 6 );
 
 	print( a, n );
 
